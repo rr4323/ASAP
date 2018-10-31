@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 declare var L;
@@ -27,22 +28,23 @@ export class SearchComponent implements OnInit {
       }).setView([51.49912573429843, -0.12582778930664062], 6);
 
     // Define your product name and version
-    
+
     var resultsList = tomtom.resultsList()
         .addTo(map);
     var markersLayer = L.tomTomMarkersLayer().addTo(map);
     var geometrySearchArea;
-    var searchTypesList = document.getElementById('tomtom-example-searchesList');
+    var searchTypesList = document.getElementById('tomtom-example-searchesList')as HTMLSelectElement;
+
     searchTypesList.onchange = onSelectElementChange;
     var languageSelectorPlaceholder = document.getElementById('tomtom-language-selector-placeholder');
     var languageSelector = tomtom.languageSelector.getHtmlElement(new tomtom.localeService(), 'search');
     languageSelectorPlaceholder.insertBefore(languageSelector, languageSelectorPlaceholder.firstChild);
     buildGeopolSelector();
-    var latInput = document.getElementById('latParam');
-    var lonInput = document.getElementById('lonParam');
+    var latInput = document.getElementById('latParam') as HTMLInputElement;
+    var lonInput = document.getElementById('lonParam') as HTMLInputElement;
     var geoBiasControl = new GeoBiasControl();
-    var form = document.getElementById('form');
-    form.onsubmit = function() {
+      var form = document.getElementById('form');
+        form.onsubmit = function() {
         clear();
         var selectedSearch = searchTypesList.options[searchTypesList.selectedIndex].value;
         var searchCall = prepareServiceCall(selectedSearch);
@@ -90,11 +92,11 @@ export class SearchComponent implements OnInit {
     */
     function prepareServiceCall(searchName) {
         var selectedLangCode = languageSelector.value;
-        var queryValue = document.getElementById('query').value;
-        var minFuzzyValue = document.getElementById('minFuzzyLevel').value;
-        var maxFuzzyValue = document.getElementById('maxFuzzyLevel').value;
-        var limitValue = document.getElementById('limit').value;
-        var viewValue = document.getElementById('tomtom-example-geopolViewCodesList').value;
+        var queryValue = (<HTMLInputElement>document.getElementById('query')).value;
+        var minFuzzyValue =(<HTMLInputElement> document.getElementById('minFuzzyLevel')).value;
+        var maxFuzzyValue = (<HTMLInputElement>document.getElementById('maxFuzzyLevel')).value;
+        var limitValue = (<HTMLInputElement>document.getElementById('limit')).value;
+        var viewValue = (<HTMLInputElement>document.getElementById('tomtom-example-geopolViewCodesList')).value;
         var currentLocation = map.getCenter();
         var defaultOpts = {unwrapBbox: true};
         var call;
@@ -279,7 +281,7 @@ export class SearchComponent implements OnInit {
         var queryParamElement = document.getElementById('queryParam');
         var minFuzzyParamElement = document.getElementById('minFuzzyParam');
         var maxFuzzyParamElement = document.getElementById('maxFuzzyParam');
-        var queryInputElement = document.getElementById('query');
+        var queryInputElement = document.getElementById('query')as HTMLInputElement;
         //nearby search specific
         if (searchTypesList.options[searchTypesList.selectedIndex].value === 'nearbySearch') {
             queryParamElement.style.display = 'none';
@@ -314,10 +316,10 @@ export class SearchComponent implements OnInit {
     function isNumber(n) {
         return !isNaN(parseFloat(n)) && isFinite(n);
     }
-    var minFuzzyElement = document.getElementById('minFuzzyLevel');
-    var maxFuzzyElement = document.getElementById('maxFuzzyLevel');
-    var radiusElement = document.getElementById('radius');
-    var limitElement = document.getElementById('limit');
+    var minFuzzyElement = document.getElementById('minFuzzyLevel') as HTMLInputElement;
+    var maxFuzzyElement = document.getElementById('maxFuzzyLevel') as HTMLInputElement;
+    var radiusElement = document.getElementById('radius') as HTMLInputElement;
+    var limitElement = document.getElementById('limit') as HTMLInputElement;
     minFuzzyElement.onchange = handleRangeUpdate;
     maxFuzzyElement.onchange = handleRangeUpdate;
     radiusElement.onchange = handleRangeUpdate;
@@ -452,7 +454,7 @@ export class SearchComponent implements OnInit {
     };
     GeoBiasControl.prototype.checked = function() {
         return this.geoBiasInput.checked;
-    };
-})(tomtom);
+	};
+	})(tomtom);
       }
     }

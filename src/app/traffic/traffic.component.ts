@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 declare var tomtom:any;
 declare var L;
+
 @Component({
   selector: 'app-traffic',
   templateUrl: './traffic.component.html',
@@ -71,7 +72,7 @@ export class TrafficComponent implements OnInit {
             centerOnMarker(layers[0]);
         }
 
-        function toggleLayer(layerName) {
+     function toggleLayer(layerName) {
             var layer = tomtom.L.MapUtils.findLayersByName(layerName, map)[0];
             var newTrafficLayer;
             if (!layer) {
@@ -99,7 +100,7 @@ export class TrafficComponent implements OnInit {
         }
         document.getElementById('baseLayer').onchange = updateBaseLayer;
 
-        (function initializeTileSwitcher() {
+       (function initializeTileSwitcher() {
             var select = document.getElementById('baseLayer');
             var layers = map.getBaseLayers();
 
@@ -108,13 +109,13 @@ export class TrafficComponent implements OnInit {
                 option.value = value;
                 option.text = label;
                 if (selected) {
-                    option.selected = 'selected';
+                    option.selected = true;
                 }
                 return option;
             }
 
-            layers.raster && select.appendChild(newOption('raster', 'Raster'));
-            layers.vector && select.appendChild(newOption('vector', 'Vector', 'selected'));
+            layers.raster && select.appendChild(newOption('raster', 'Raster',true));
+            layers.vector && select.appendChild(newOption('vector', 'Vector', true));
         })();
   }
 
