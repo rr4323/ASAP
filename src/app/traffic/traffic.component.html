@@ -1,0 +1,18 @@
+<div class='map-container use-all-space'>
+        <div id='map' class='use-all-space'></div>
+       <div>
+            <label for='baseLayer'>
+                Base Layer
+               <select id='baseLayer' name='baseLayer' autocomplete='off'></select>
+            </label>
+            <label>Traffic layers:</label>
+           <label for='trafficWithIncidents'>
+                <input type="checkbox" (change)="toggleLayer('trafficWithIncidents')" id='trafficWithIncidents' checked>
+                Incidents
+            </label>
+             <label for='trafficFlow'>
+                <input type="checkbox" (change)="toggleLayer('trafficFlow')" id='trafficFlow' checked>
+                Flow
+            </label>
+        </div>
+    </div>

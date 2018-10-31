@@ -1,0 +1,65 @@
+<div class=' container-fluid   use-all-space text-dark'>
+<div class="row">
+        <div class='sidepanel col-sm-4 col-xs-12 p-4'>
+            <h4 >Search parameters</h4>
+            <form id='form'>
+                <div class='sidepanel-input-group'>
+                    <select id='tomtom-example-searchesList' >
+                        <option value='fuzzySearch' selected>Fuzzy search</option>
+                        <option value='poiSearch'>POI search</option>
+                        <option value='categorySearch'>Category search</option>
+                        <option value='geometrySearch' title='Geometry search'>Geometry search</option>
+                        <option value='nearbySearch' title='Nearby search'>Nearby search</option>
+                        <option value='lowBandwidthSearch' title='Low bandwidth search'>Low bandwidth search</option>
+                    </select>
+                    <label for='tomtom-example-searchesList'>Type</label>
+                </div>
+                <div class='sidepanel-input-group' id='tomtom-language-selector-placeholder'>
+                    <label for='tomtom-example-langCodesList'>Language</label>
+                </div>
+                <div class='sidepanel-input-group' id='tomtom-geopol-selector-placeholder'></div>
+                <div id='queryParam' class='sidepanel-input-group'>
+                    <input type='text' id='query' name='query' placeholder='Search for (e.g. pizza)...' pattern='.+' title='this field is required'
+                        required>
+                    <label for='query'>Query</label>
+                </div>
+                <div id='minFuzzyParam' class='sidepanel-input-group'>
+                    <input type='range' id='minFuzzyLevel'  name='minFuzzyLevel' min='1' max='4' value='1' title='Min fuzzy level.' />
+                    <label id='minFuzzyLevelLabel' for='minFuzzyLevel'>Min Fuzzy level (1)</label>
+                </div>
+                <div id='maxFuzzyParam' class='sidepanel-input-group'>
+                    <input type='range' id='maxFuzzyLevel'  name='maxFuzzyLevel' min='1' max='4' value='2' title='Max fuzzy level.' />
+                    <label id='maxFuzzyLevelLabel' for='maxFuzzyLevel'>Max Fuzzy level (2)</label>
+                </div>
+                <div class='sidepanel-input-group'>
+                    <input type='range' id='limit'  name='limit' min='1' max='100' value='10' title='Limit value.' />
+                    <label id='limitAmount' for='limit'>Limit (10)</label>
+                </div>
+                <fieldset id="geoBiasPanel">
+                    <legend>Geo Bias:
+                        <input type='checkbox' id='geoBias' name='geoBias' checked/>
+                    </legend>
+                    <div id='radiusParam' class='sidepanel-input-group'>
+                        <input type='range' id='radius'  name='radius' title='Radius value.' min='0' max='10000' value='0' />
+                        <label id='radiusLabel' for='radius'>Radius (0)</label>
+                    </div>
+                    <div class='sidepanel-input-group' id='latParamElement'>
+                        <input type='text' id='latParam'  name='position' placeholder='Lat value' pattern='((-?\d*(\.\d+)?))' title='must contain position value, e.g.: 37.553'
+                               value='51.4912345' />
+                        <label for='latParam'>Latitude</label>
+                    </div>
+                    <div class='sidepanel-input-group' id='lonParamElement'>
+                        <input type='text' id='lonParam'  name='position' placeholder='Lon value' pattern='((-?\d*(\.\d+)?))' title='must contain position value, e.g.: -122.453'
+                               value='-0.1212345' />
+                        <label for='lonParam'>Longitude</label>
+                    </div>
+                    <div class='sidepanel-input-group geo-bias-message'>
+                        <span id='geoBiasMessage'></span>
+                    </div>
+                </fieldset>
+                <input type='submit' id='tomtom-example-submit' value='Submit' />
+            </form>
+        </div>
+        <div id='map' class=' col-sm-7 col-xs-12'  ></div>
+</div>
+</div>

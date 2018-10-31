@@ -24,10 +24,17 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/sdk/map.css"
+              "src/assets/sdk/map.css",
+              "src/assets/css/bootstrap.css"
+
+
             ],
             "scripts": [
-              "src/assets/sdk/tomtom.min.js"
+              "src/assets/sdk/tomtom.min.js",
+              "src/assets/js/bootstrap.js",
+
+
+
             ]
           },
           "configurations": {
