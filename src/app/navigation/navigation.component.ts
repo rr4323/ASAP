@@ -10,6 +10,10 @@ export class NavigationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
+   signUpAlert()
+  {
+    alert("new user Sign Up first");
+  }
 }

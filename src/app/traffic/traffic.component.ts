@@ -36,7 +36,7 @@ export class TrafficComponent implements OnInit {
         languageLabel.innerHTML = 'Maps language';
         var languageSelector = tomtom.languageSelector.getHtmlElement(tomtom.globalLocaleService, 'maps');
         languageLabel.appendChild(languageSelector);
-        var languageWarning = L.DomUtil.create('label', 'warning');
+       var languageWarning = L.DomUtil.create('label', 'warning');
         languageWarning.innerHTML = 'Language selection is only possible for vector map tiles.';
         tomtom.controlPanel({
             position: 'bottomright',
@@ -59,7 +59,7 @@ export class TrafficComponent implements OnInit {
             .addTo(map)
             .addContent(document.getElementById('map').nextElementSibling);
 
-        function centerOnMarker(trafficIncidentsLayer) {
+       function centerOnMarker(trafficIncidentsLayer) {
             trafficIncidentsLayer.on('click', function(event) {
                 var marker = event.propagatedFrom;
                 map.setView(marker.getLatLng(), map.getZoom());
